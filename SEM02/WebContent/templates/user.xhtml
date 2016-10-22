@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"	>
+<body>
+<ui:composition template="/templates/common.xhtml">
+	<ui:define name="boxA">
+		<ui:fragment rendered="#{!user.loggedIn}">
+			<ui:include src="/templates/login.xhtml"/>
+		</ui:fragment>
+		<ui:fragment rendered="#{user.loggedIn}">
+			<h:form id="logoutForm">
+            #{local.username} #{user.username}<br />
+				<h:commandLink action="#{user.logout}" immediate="true">
+              #{local.logout}
+            </h:commandLink>
+			</h:form>
+		</ui:fragment>
+	</ui:define>
+	<ui:define name="boxB">
+		<ui:include src="/templates/language.xhtml" />
+	</ui:define>
+</ui:composition>
+</body>
+</html>
