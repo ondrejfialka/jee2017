@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<body>
+	<h:form id="loginForm">
+	     Username:
+	     <h:inputText required="true" class="text" id="username"
+			value="#{formData.username}">		
+		</h:inputText>
+		<br />
+	     Password:
+	     <h:inputSecret required="true" class="text" id="password"
+			value="#{formData.password}">		
+		</h:inputSecret>
+		<br />
+		<h:commandButton id="submit" value="Submit" action="#{formData.createUser}" />
+		<br/>
+		Request date: <h:outputText value="#{formData.date}"/>
+		<br/>
+		User count: <h:outputText value="#{userManager.userCount}"/>
+	</h:form>
+</body>
+</html>

@@ -7,7 +7,7 @@
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="boxA">
 		<ui:fragment rendered="#{!user.loggedIn}">
-			<ui:include src="/templates/login.xhtml"/>
+			<ui:include src="/login.xhtml"/>
 		</ui:fragment>
 		<ui:fragment rendered="#{user.loggedIn}">
 			<h:form id="logoutForm">
@@ -19,7 +19,7 @@
 		</ui:fragment>
 	</ui:define>
 	<ui:define name="boxB">
-		<ui:include src="/templates/language.xhtml" />
+		<ui:include src="/language.xhtml" />
 	</ui:define>
 </ui:composition>
 </body>

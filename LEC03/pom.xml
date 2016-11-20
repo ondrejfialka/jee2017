@@ -1,12 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cz.ucl.jee</groupId>
-  <artifactId>LEC02</artifactId>
+  <artifactId>LEC03</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
-  	<finalName>LEC02</finalName>
+  	<finalName>LEC03</finalName>
     <sourceDirectory>src</sourceDirectory>    
     <plugins>
       <plugin>
@@ -26,14 +25,12 @@
       </plugin>
     </plugins>
   </build>
-  
-  <dependencies>
-  	<dependency>
-	  	<groupId>javax</groupId>
-	  	<artifactId>javaee-api</artifactId>
-	  	<version>7.0</version>
-	  	<scope>provided</scope>
+  <dependencies>	  
+	<dependency>
+	  <groupId>javax</groupId>
+	  <artifactId>javaee-api</artifactId>
+	  <version>7.0</version>
+	  <scope>provided</scope>
 	</dependency>
- </dependencies>
-  
+  </dependencies>
 </project>

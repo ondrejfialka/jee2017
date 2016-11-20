@@ -1,23 +1,19 @@
-package cz.ucl.jee.sem02;
+package cz.ucl.jee.lec03;
 
-import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.validation.constraints.Pattern;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
-
-@Named("user")
+@ManagedBean(name="user")
 @SessionScoped
-public class UserBean implements Serializable {
+public class UserBean{
 
+	@Pattern(regexp="[a-z]*", message="{user.namePattern}")
 	private String username;
 	private String password;
+	private RodneCislo rodneCislo;
 	private boolean loggedIn;
-	
-	public UserBean() {
-		super();
-		loggedIn = false;
-	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -33,22 +29,26 @@ public class UserBean implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+
+	public RodneCislo getRodneCislo() {
+		return rodneCislo;
+	}
+
+	public void setRodneCislo(RodneCislo rodneCislo) {
+		this.rodneCislo = rodneCislo;
+	}
 
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
-
+	
 	public String login() {
 		if ("admin".equals(username) && "secret".equals(password)) {
 			loggedIn = true;
-			return "loginSuccess";
+			return "success";
 		} else
-			return "loginFailure";
+			return "failure";
 	}
-	
-	public String logout() {
-		loggedIn = false;
-		return "logoutSuccess";
-	}			
-
 }

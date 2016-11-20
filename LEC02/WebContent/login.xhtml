@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <body>
 <h:form id="loginForm">
@@ -26,9 +27,24 @@
 
 	<h:commandButton id="submit" value="Submit" action="#{user.login}" />
 
-	<h:commandLink action="registration" immediate="true">
-        #{localize.registerAccount}
-      </h:commandLink>
+	<ui:fragment rendered="#{user.registrationEnabled}">
+		<h:commandLink action="registration" immediate="true">
+	        #{localize.registerAccount}
+	      </h:commandLink>
+	</ui:fragment>
+      
+      <p>
+	JSF Version: <h:outputText value="#{user.version}"/>
+</p>
 </h:form>
+
+<h:form id="loginForm2">
+	<ui:fragment rendered="#{user.registrationEnabled}">
+		<h:commandLink action="registration" immediate="true">
+	        #{localize.registerAccount}
+	      </h:commandLink>
+	</ui:fragment>
+	</h:form>
+
 </body>
 </html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<html xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns="http://www.w3.org/1999/xhtml">
+<body>
+List of rodne cislo records:
+<br/>
+<ul>
+  <ui:repeat value="#{rcRegister.RCList}" var="rc">
+    <li>#{rc.prefix}/#{rc.suffix}</li>
+  </ui:repeat>
+</ul>
+<br/><br/>
+Table of rodne cislo records:
+<br />
+<h:dataTable value="#{rcRegister.RCList}" var="rc">
+  <h:column>
+  	<f:facet name="header">#{localize.prefix}</f:facet>
+  	#{rc.prefix}
+  </h:column>
+  <h:column>
+  	<f:facet name="header">#{localize.suffix}</f:facet>
+  	#{rc.suffix}
+  </h:column>
+</h:dataTable>
+</body>
+</html>
