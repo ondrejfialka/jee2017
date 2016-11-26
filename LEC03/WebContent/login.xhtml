@@ -22,13 +22,13 @@
 			<h:message style="color: red;" for="password" />
 
 			<h:outputText value="#{localize.rodneCislo} :" />
-			<h:inputText required="false" id="rodnecislo"
+			<h:inputText required="false" id="birthNum"
 				value="#{user.rodneCislo}">
 				<f:converter converterId="rcConverter" />
 			</h:inputText>
-			<h:message style="color: red;" for="rodnecislo" />
+			<h:message style="color: red;" for="birthNum" />
 			<br/>
-			<h:messages />
+			<!-- h:messages /-->
 
 			<h:commandButton id="submit" value="Submit" action="#{user.login}" />
 			<h:commandLink action="registration" immediate="true">

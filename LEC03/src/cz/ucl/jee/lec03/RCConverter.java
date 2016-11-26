@@ -1,5 +1,7 @@
 package cz.ucl.jee.lec03;
 
+import java.util.ResourceBundle;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -14,10 +16,12 @@ public class RCConverter implements Converter {
 	public Object getAsObject(FacesContext ctx, UIComponent convertFrom,
 			String value) {
 		String[] splitValues = value.split(DELIMITER);
+		ResourceBundle bundle = ResourceBundle.getBundle("error_messages");
+		
 		if (splitValues.length != 2) {
 			FacesMessage message = new FacesMessage(
 					FacesMessage.SEVERITY_ERROR, "Wrong format",
-					"Wrong format of rodne cislo '" + value + "'");
+					bundle.getString("wrongBirthNumber"));
 			throw new ConverterException(message);
 		} else {
 			try {
@@ -27,7 +31,7 @@ public class RCConverter implements Converter {
 			} catch (RuntimeException e) {
 				FacesMessage message = new FacesMessage(
 						FacesMessage.SEVERITY_ERROR, "Wrong format",
-						"Wrong format of rodne cislo '" + value + "'");
+						bundle.getString("wrongBirthNumber"));
 				throw new ConverterException(message);
 			}
 		}

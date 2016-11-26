@@ -1,4 +1,4 @@
-package cz.ucl.jee.sem02;
+package cz.ucl.jee.sem03;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

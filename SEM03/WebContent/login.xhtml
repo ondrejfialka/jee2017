@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<body>
+<h:form id="loginForm">
+     Username:
+     <h:inputText required="true" class="text" id="username"
+		value="#{user.username}">
+		<f:validateLength minimum="2" maximum="10" />
+	</h:inputText>
+
+	<h:message style="color: red;" for="username" />
+	<br />
+
+     Password:
+     <h:inputSecret required="true" class="text" id="password"
+		value="#{user.password}">
+		<f:validateLength minimum="2" maximum="10" />
+	</h:inputSecret>
+
+	<h:message style="color: red;" for="password" />
+	<br />
+
+	<h:commandButton id="submit" value="Submit" action="#{user.login}" />
+
+	<h:commandLink action="registration" immediate="true">
+        #{localize.registerAccount}
+      </h:commandLink>
+</h:form>
+</body>
+</html>
