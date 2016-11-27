@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="mm_datatable::#datatable#datatable.xhtml"
+    NAME="output" PATH="/datatable/datatable.xhtml"
+    TARGET="rules:#datatable#datatable.xhtml" TITLE="mm_datatable" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="mm_datatable_filter::#datatable#filtersort.xhtml" NAME="output1"
+    PATH="/datatable/filtersort.xhtml"
+    TARGET="rules:#datatable#filtersort.xhtml"
+    TITLE="mm_datatable_filter" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="mm_datatree_custom::#datatree#datatree_custom.xhtml"
+    NAME="output2" PATH="/datatree/datatree_custom.xhtml"
+    TARGET="rules:#datatree#datatree_custom.xhtml"
+    TITLE="mm_datatree_custom" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="mm_datatree_adapter::#datatree#datatree_adapter.xhtml"
+    NAME="output3" PATH="/datatree/datatree_adapter.xhtml"
+    TARGET="rules:#datatree#datatree_adapter.xhtml"
+    TITLE="mm_datatree_adapter" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_selects::#iteration#selects.xhtml"
+    NAME="output4" PATH="/iteration/selects.xhtml"
+    TARGET="rules:#iteration#selects.xhtml" TITLE="mm_selects" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_iteration::#iteration#iteration.xhtml"
+    NAME="output5" PATH="/iteration/iteration.xhtml"
+    TARGET="rules:#iteration#iteration.xhtml" TITLE="mm_iteration" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#datatable#datatable.xhtml"
+  PATH="/datatable/datatable.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#dragdrop#dragdrop.xhtml"
+  PATH="/dragdrop/dragdrop.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#iteration#selects.xhtml"
+  PATH="/iteration/selects.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#iteration#iteration.xhtml"
+  PATH="/iteration/iteration.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#datatree#datatree_custom.xhtml"
+  PATH="/datatree/datatree_custom.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#datatree#datatree_adapter.xhtml"
+  PATH="/datatree/datatree_adapter.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#datagrid#datagrid.xhtml"
+  PATH="/datagrid/datagrid.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#datatable#filtersort.xhtml"
+  PATH="/datatable/filtersort.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

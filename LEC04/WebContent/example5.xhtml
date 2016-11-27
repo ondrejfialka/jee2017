@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+
+<body>
+<h:form>
+<h:dataTable value="#{addressTableBeanExample5.data}" var="data">
+	<h:column id="firstname">
+		<f:facet name="header">
+			<h:outputText value="Firstname"/>
+		</f:facet>
+		<h:outputText value="#{data.firstname}" />
+	</h:column>
+
+	<h:column id="lastname">
+		<f:facet name="header">
+			<h:outputText value="Lastname" />
+		</f:facet>
+		<h:outputText value="#{data.lastname}" />
+	</h:column>
+
+	<h:column id="customerId">
+		<f:facet name="header">
+			<h:outputText value="Customer ID" />
+		</f:facet>
+		<h:outputText value="#{data.customerId}" />
+	</h:column>
+
+	<h:column id="action">
+		<h:commandButton value="Select" 
+			action="#{addressTableBeanExample5.select(data.customerId)}"/>
+	</h:column>
+
+</h:dataTable>
+</h:form>
+</body>
+</html>

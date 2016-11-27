@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<body>
+<h:form>
+	<h:panelGrid columns="3">
+		<h:outputText value="#{localize.firstName}:" />
+		<h:inputText required="true" id="firstName"
+			value="#{memberManager.member.firstName}" />
+		<h:message style="color: red;" for="firstName" />
+
+		<h:outputText value="#{localize.surname}:" />
+		<h:inputText required="true" id="surname"
+			value="#{memberManager.member.surname}" />
+		<h:message style="color: red;" for="surname" />
+
+		<h:outputText value="#{localize.email}:" />
+		<h:inputText required="true" id="email"
+			value="#{memberManager.member.email}">
+			<ucl:validateEmail bannedDomains="cz,name" />
+		</h:inputText>
+		<h:message style="color: red;" for="email" />
+
+	</h:panelGrid>
+	<h:commandButton id="submit" value="#{localize.save}"
+		action="#{memberManager.saveMember}" />
+</h:form>
+</body>
+</html>

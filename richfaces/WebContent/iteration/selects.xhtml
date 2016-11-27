@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head/>
+<h:body>
+<ui:composition template="/template/lec05.xhtml">
+	<ui:define name="pageTitle">Select</ui:define>
+	<ui:define name="primaryContent">
+		<h:form>
+			<h3>SelectOneMenu (with a Map):</h3> 
+			<h:selectOneMenu value="#{iterationMgr.selectedItemMenu}">
+				<f:selectItems value="#{iterationMgr.data.maritalStatusMap}"/>
+			</h:selectOneMenu>
+			<h:commandButton value="Remove" action="#{iterationMgr.removeSelectedItemMenu}" style="margin-left: 10px;"/>
+		</h:form>
+		
+		<br/><br/>
+		<hr/>			
+		<br/>
+		
+		<h:form>
+			<h3>SelectOneMenu (with Model Objects):</h3> 			
+			<h:selectOneMenu value="#{iterationMgr.selectedItemMenu}">	
+				<f:selectItem itemLabel="" itemValue="#{cz.ucl.lec05.model.MaritalStatus.NONE}" />			
+				<f:selectItems value="#{iterationMgr.maritalStatusEnumValues}" var="item"
+							   itemValue="#{item}" itemLabel="#{local[item]}"
+				/>
+			</h:selectOneMenu>			
+		</h:form>
+		
+		<br/><br/>
+		<hr/>			
+		<br/>
+		
+		<h:form>		
+			<h3>SelectOneRadio:</h3>
+			<h:selectOneRadio value="#{iterationMgr.selectedItemRadio}" layout="pageDirection">				
+				<ui:repeat items="#{iterationMgr.maritalStatusEnumValues}" var="marStatItem">				
+					<f:selectItem itemLabel="#{local[marStatItem]}" itemValue="#{marStatItem}"/>
+				</>
+			</h:selectOneRadio>	
+			<hr/>
+			<h:selectOneRadio value="#{iterationMgr.selectedItemRadio}" layout="pageDirection">				
+				<f:selectItems value="#{iterationMgr.maritalStatusEnumValues}" var="item"
+							   itemValue="#{item}" itemLabel="#{local[item]}" />
+			</h:selectOneRadio>	
+			<hr/>	
+			
+					
+        </h:form>
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<h:head/>
+<h:body>
+<h:form>
+	<h:panelGrid columns="3">
+		
+		<h:outputText value="#{localize.firstName}:" />
+		<h:inputText required="true" id="firstName"
+			value="#{memberManager.member.firstName}" />
+		<rich:message style="color: red;" for="firstName" />
+
+		<h:outputText value="#{localize.surname}:" />
+		<h:inputText required="true" id="surname"
+			value="#{memberManager.member.surname}" />
+		<rich:message style="color: red;" for="surname" />
+
+		<h:outputText value="#{localize.rodneCislo}:" />
+		<h:inputText required="false" id="rodnecislo"
+			value="#{memberManager.member.rodneCislo}">
+			<ucl:convertRC delimiter="/" />
+			<f:ajax event="blur" render="rodnecisloError"/>
+		</h:inputText>
+		<h:message id="rodnecisloError" style="color: red;" for="rodnecislo" />
+
+		<h:outputText value="#{localize.email}:" />
+		<h:inputText required="true" id="email"
+			value="#{memberManager.member.email}">
+			<ucl:validateEmail bannedDomains="cz,name" />
+			<f:ajax event="blur" render="emailError"/>
+		</h:inputText>
+		<h:message id="emailError" style="color: red;" for="email" />
+
+	</h:panelGrid>	
+	<h:commandButton id="submitAjax2" value="#{localize.save} AJAX"
+		action="#{memberManager.saveMember}">
+		<f:ajax execute="@form" render="@form membersTableRich membersTable"/>
+	</h:commandButton>
+	<h:commandButton id="submitNormal" value="#{localize.save}"
+		action="#{memberManager.saveMember}" />
+</h:form>
+
+<rich:dataTable id="membersTableRich" var="person"
+	value="#{memberManager.allMembers}">
+	<rich:column>
+		<f:facet name="header">#{localize.firstName}</f:facet>
+	  #{person.firstName}
+	</rich:column>
+	<rich:column>
+		<f:facet name="header">#{localize.surname}</f:facet>
+	  #{person.surname}
+	</rich:column>
+	<rich:column>
+		<f:facet name="header">#{localize.rodneCislo}</f:facet>
+	  #{person.rodneCislo}
+	</rich:column>
+	<rich:column>
+		<f:facet name="header">#{localize.email}</f:facet>
+	  #{person.email}
+	</rich:column>
+</rich:dataTable>
+<br />
+<br />
+<h:dataTable id="membersTable" var="person"
+	value="#{memberManager.allMembers}">
+	<h:column>
+		<f:facet name="header">#{localize.firstName}</f:facet>
+	  #{person.firstName}
+	</h:column>
+	<h:column>
+		<f:facet name="header">#{localize.surname}</f:facet>
+	  #{person.surname}
+	</h:column>
+	<h:column>
+		<f:facet name="header">#{localize.rodneCislo}</f:facet>
+	  #{person.rodneCislo}
+	</h:column>
+	<h:column>
+		<f:facet name="header">#{localize.email}</f:facet>
+	  #{person.email}
+	</h:column>
+</h:dataTable>
+
+</h:body>
+</html>

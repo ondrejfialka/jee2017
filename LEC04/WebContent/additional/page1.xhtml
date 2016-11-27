@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+
+<body>
+<h:form id="form">
+
+	This is page One.<br/>
+
+	<h:inputText value="#{data1.input}" />
+	
+	<h:commandButton value="submit" action="page2">
+		<f:setPropertyActionListener value="#{data1.input}" 
+			target="#{data2.value}"/>
+	</h:commandButton>
+
+</h:form>
+</body>
+</html>

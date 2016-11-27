@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+
+<body>
+<h:form id="simpleForm">
+		<ucl:person person="#{memberManager.member}" showEmail="false" />	
+		<h:commandButton id="submit" value="#{localize.save}" action="#{memberManager.saveMember}" />			
+</h:form>
+</body>
+</html>

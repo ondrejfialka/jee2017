@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<h:head/>
+<h:body>
+<ui:composition template="/template/lec05.xhtml">
+	<ui:define name="pageTitle">Drag &amp; Drop</ui:define>
+	<ui:define name="primaryContent">
+		<h:outputStylesheet>
+			.dmColumnOdd {
+				background-color: lavender;
+				padding-left: 10px;
+				padding-right: 10px;
+				border-bottom: 1px solid;
+				vertical-align: top;
+			}
+			.dmColumnEven {
+				background-color: white;
+				padding-left: 10px;
+				padding-right: 10px;
+				border-bottom: 1px solid;
+				vertical-align: top;
+			}
+			.dmHeader {
+				background-color: navy;
+				color: white;
+				font-weight: bold;
+			}
+			.wmTable {
+				border-collapse: collapse;
+				border: 2px solid;
+			}
+			.wmDay {
+				font-weight: bold;
+				font-size: 16px;
+			}
+			.topPanel {
+				vertical-align: top;
+			}
+			.dayDropTarget {
+				margin-left: -10px; 
+				margin-right: -10px; 
+				margin-top: -2px; 
+				margin-bottom: -2px;
+			}
+			.label {
+				font-weight: bold;
+			}			
+		</h:outputStylesheet>		
+		
+		Drag some of the meals onto one of the day's names<br/><br/>
+		
+		<h:form>		  
+		  <h:panelGrid columns="2" rowClasses="topPanel,topPanel">
+		  	<rich:panel header="All Meals">		  		
+		  		<rich:list value="#{foodMgr.allMeals}" var="meal">
+		  			<a4j:outputPanel>
+		  				#{meal.name}
+		  				<rich:dragSource type="#{meal.category}" dragValue="#{meal}" />
+		  			</a4j:outputPanel>		  			
+		  		</rich:list>
+		  	</rich:panel>
+		  	<rich:panel header="Weekly Menu">
+		  		<h:panelGrid columns="6" styleClass="wmTable" headerClass="dmHeader" columnClasses="dmHeader,dmColumnOdd,dmColumnEven,dmColumnOdd,dmColumnEven,dmColumnOdd">
+		  			<h:outputLabel value="Day of Week"/>
+		  			<c:forEach items="#{foodMgr.weeklyMenu}" var="dailyMenu" varStatus="loopStat">
+		  				<rich:panel styleClass="dayDropTarget">
+  							<rich:dropTarget acceptedTypes="@all" dropValue="#{dailyMenu}"
+								dropListener="#{mealDropListener.processDrop}"
+								render="appetizerList_#{loopStat.index},entreeList_#{loopStat.index},dessertList_#{loopStat.index}" />		
+							<h:outputLabel value="#{local[foodMgr.dayOfWeekName(loopStat.index)]}" styleClass="wmDay"/>  							  				
+			  			</rich:panel>
+			  		</c:forEach>		  					  					  			
+		  		
+		  			<h:outputLabel value="Appetizers" />	
+		  			<c:forEach items="#{foodMgr.weeklyMenu}" var="dailyMenu" varStatus="loopStat">
+		  					<rich:list type="definitions" value="#{dailyMenu.appetizers}" var="appetizer" id="appetizerList_#{loopStat.index}">
+		  						<f:facet name="term">
+		  							<h:outputText value="#{appetizer.name}"/>
+		  						</f:facet>		  					 		  						
+		  						<span class="label">Price: </span>#{appetizer.price}
+		  					</rich:list>		  					
+		  			</c:forEach>
+		  			
+		  			<h:outputLabel value="Entrées" />	
+		  			<c:forEach items="#{foodMgr.weeklyMenu}" var="dailyMenu" varStatus="loopStat">
+		  				<rich:list type="definitions" value="#{dailyMenu.entrees}" var="entree" id="entreeList_#{loopStat.index}">		  							  				
+		  					<f:facet name="term">#{entree.name}</f:facet>
+		  					<span class="label">Price: </span>#{entree.price}
+		  				</rich:list>
+		  			</c:forEach>
+		  			
+		  			<h:outputLabel value="Desserts" />	
+		  			<c:forEach items="#{foodMgr.weeklyMenu}" var="dailyMenu" varStatus="loopStat">
+		  				<rich:list type="definitions" value="#{dailyMenu.desserts}" var="dessert" id="dessertList_#{loopStat.index}">
+		  					<f:facet name="term">#{dessert.name}</f:facet>
+		  					<span class="label">Price: </span>#{dessert.price}
+		  				</rich:list>
+		  			</c:forEach>
+		  		</h:panelGrid>
+		  	</rich:panel>
+		  </h:panelGrid>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>

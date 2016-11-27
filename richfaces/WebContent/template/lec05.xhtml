@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title><ui:insert name="pageTitle">LEC05</ui:insert></title>	
+</h:head>
+<h:body>
+  <rich:panel>
+  	<h:form>
+  	   <rich:toolbar>
+  	     <rich:dropDownMenu>  	     	
+		    <f:facet name="label">Examples</f:facet>
+		    <rich:menuGroup label="Data Table">
+  	     		<rich:menuItem submitMode="server" label="Data Table (Subtables)" action="mm_datatable" />
+  	     		<rich:menuItem submitMode="server" label="Data Table (Filter &amp; Sort)" action="mm_datatable_filter" />
+  	     	</rich:menuGroup>
+  	     	<rich:menuItem submitMode="server" label="Data Grid" action="mm_datagrid" />
+  	     	<rich:menuGroup label="Data Tree">
+  	     		<rich:menuItem submitMode="server" label="Custom Nodes" action="mm_datatree_custom" />
+  	     		<rich:menuItem submitMode="server" label="Node Adapters" action="mm_datatree_adapter" />
+  	     	</rich:menuGroup>
+  	     	<rich:menuItem submitMode="server" label="Drag &amp; Drop" action="mm_dragdrop" />
+  	     	<rich:menuGroup label="Iteration">
+  	     		<rich:menuItem submitMode="server" label="Select items" action="mm_selects" />
+  	     		<rich:menuItem submitMode="server" label="Data iteration" action="mm_iteration" />
+  	     	</rich:menuGroup>
+  	     </rich:dropDownMenu>
+  	   </rich:toolbar>
+  	</h:form>
+  	
+  	<h2><ui:insert name="pageTitle">LEC05</ui:insert></h2>  	
+  	<ui:insert name="primaryContent">Primary content</ui:insert>
+  	  	  	
+  </rich:panel>
+</h:body>
+</html>

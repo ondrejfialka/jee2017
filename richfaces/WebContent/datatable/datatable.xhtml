@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"	
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head/>
+<h:body>
+<ui:composition template="/template/lec05.xhtml">
+	<ui:define name="pageTitle">Data Table</ui:define>
+	<ui:define name="primaryContent">
+		<h:form>
+			<h3>Multiple Sub-Tables</h3>
+			<rich:dataTable var="menu" value="#{foodMgr.weeklyMenu}" iterationStatusVar="menuStat">
+				 <f:facet name="header">
+      				<rich:columnGroup>
+      					<rich:column colspan="5">Weekly Menu</rich:column>
+      					<rich:column breakRowBefore="true">Day</rich:column>
+      					<rich:column style="width: 100px;">Theme</rich:column>
+      					<rich:column>Category</rich:column>
+      					<rich:column>Name</rich:column>
+      					<rich:column>Price</rich:column>
+      				</rich:columnGroup>
+      			</f:facet>
+      			<rich:column style="font-weight: bold; #{(not empty menu.appetizers) or (not empty menu.entrees) or (not empty menu.desserts) ? 'border-bottom: 0px none;' : ''}">
+      				#{local[foodMgr.dayOfWeekName(menuStat.index)]}
+      			</rich:column>	
+      			<rich:column colspan="4">      			
+      				#{menu.theme}      				
+      			</rich:column>   
+      			
+      			<rich:collapsibleSubTable var="meal" value="#{menu.appetizers}" id="mealTable_appetizer" iterationStatusVar="mealStat">
+      				<rich:column style="border-right: 0px none; #{(mealStat.last and (empty menu.entrees) and (empty menu.desserts)) ? '' : 'border-bottom: 0px none;'}" />
+      				<rich:column style="#{(mealStat.last and (empty menu.entrees) and (empty menu.desserts)) ? '' : 'border-bottom: 0px none;'}"/>
+      				<rich:column>
+      					#{local.APPETIZER}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.name}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.price}
+      				</rich:column>
+      			</rich:collapsibleSubTable>   
+      			<rich:collapsibleSubTable var="meal" value="#{menu.entrees}" id="mealTable_entree" iterationStatusVar="mealStat">
+      				<rich:column style="border-right: 0px none; #{(mealStat.last and (empty menu.desserts)) ? '' : 'border-bottom: 0px none;'}" />
+      				<rich:column style="#{(mealStat.last and (empty menu.desserts)) ? '' : 'border-bottom: 0px none;'}"/>
+      				<rich:column>
+      					#{local.ENTREE}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.name}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.price}
+      				</rich:column>
+      			</rich:collapsibleSubTable>
+      			<rich:collapsibleSubTable var="meal" value="#{menu.desserts}" id="mealTable_dessert" iterationStatusVar="mealStat">
+      				<rich:column style="border-right: 0px none; #{mealStat.last ? '' : 'border-bottom: 0px none;'}" />
+      				<rich:column style="#{mealStat.last ? '' : 'border-bottom: 0px none;'}"/>
+      				<rich:column>
+      					#{local.DESSERT}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.name}
+      				</rich:column>
+      				<rich:column>
+      					#{meal.price}
+      				</rich:column>
+      			</rich:collapsibleSubTable>
+      						
+			</rich:dataTable>
+			
+			<h3>Collapsible Sub-Table</h3>
+			<rich:dataTable var="menu" value="#{foodMgr.weeklyMenu}" iterationStatusVar="menuStat" id="filteredTable">
+				 <f:facet name="header">
+      				<rich:columnGroup>
+      					<rich:column colspan="4">Weekly Menu</rich:column>
+      					<rich:column breakRowBefore="true">Day</rich:column>
+      					<rich:column style="width: 100px;">Theme</rich:column>
+      					<rich:column>Name      						
+						</rich:column>
+      					<rich:column>Price</rich:column>      					
+      				</rich:columnGroup>
+      			</f:facet>
+      			<rich:column>
+      				#{local[foodMgr.dayOfWeekName(menuStat.index)]}
+      			</rich:column>	
+      			<rich:column colspan="4">
+      				<rich:collapsibleSubTableToggler for="mealTable" />
+      				#{menu.theme}      				
+      			</rich:column>   
+      			<rich:collapsibleSubTable var="meal" value="#{menu.allMeals}" id="mealTable" iterationStatusVar="mealStat">
+      				<rich:column style="border-right: 0px none; #{mealStat.last ? '' : 'border-bottom: 0px none;'}" />
+      				<rich:column style="#{mealStat.last ? '' : 'border-bottom: 0px none;'}"/>
+      				<rich:column>      					
+      					<h:outputText style="#{fn:containsIgnoreCase(meal.name, 'pork') ? 'font-weight:bold;' : ''} " value="#{meal.name}"/>
+      				</rich:column>
+      				<rich:column>
+      					#{meal.price}
+      				</rich:column>
+      			</rich:collapsibleSubTable>     						
+			</rich:dataTable>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <navigation-rule>
+  <display-name>Core navigation</display-name>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>mm_datatable</from-outcome>
+   <to-view-id>/datatable/datatable.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_datatable_filter</from-outcome>
+   <to-view-id>/datatable/filtersort.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>  
+  <navigation-case>
+   <from-outcome>mm_datagrid</from-outcome>
+   <to-view-id>/datagrid/datagrid.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_datatree_custom</from-outcome>
+   <to-view-id>/datatree/datatree_custom.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_datatree_adapter</from-outcome>
+   <to-view-id>/datatree/datatree_adapter.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_dragdrop</from-outcome>
+   <to-view-id>/dragdrop/dragdrop.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_selects</from-outcome>
+   <to-view-id>/iteration/selects.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>mm_iteration</from-outcome>
+   <to-view-id>/iteration/iteration.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <resource-bundle>
+   <base-name>messages</base-name>
+   <var>local</var>
+  </resource-bundle>
+ </application>
+</faces-config>
