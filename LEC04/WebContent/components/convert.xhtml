@@ -20,7 +20,7 @@
 		<h:outputText value="#{localize.rodneCislo}:" />
 		<h:inputText required="false" id="rodnecislo"
 			value="#{memberManager.member.rodneCislo}">
-			<ucl:convertRC delimiter="/" />
+			<ucl:convertRC delimiter="-" />
 		</h:inputText>
 		<h:message style="color: red;" for="rodnecislo" />
 

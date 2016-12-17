@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="mm_trip_list::#view#trip_list.xhtml"
+    NAME="output" PATH="/view/trip_list.xhtml"
+    TARGET="rules:#view#trip_list.xhtml" TITLE="mm_trip_list" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_new_trip::#view#trip.xhtml"
+    NAME="output1" PATH="/view/trip.xhtml"
+    TARGET="rules:#view#trip.xhtml" TITLE="mm_new_trip" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_buy_trip::#view#buy_trip.xhtml"
+    NAME="output2" PATH="/view/buy_trip.xhtml"
+    TARGET="rules:#view#buy_trip.xhtml" TITLE="mm_buy_trip" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_client_list::#view#client_list.xhtml"
+    NAME="output3" PATH="/view/client_list.xhtml"
+    TARGET="rules:#view#client_list.xhtml" TITLE="mm_client_list" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mm_home::#index.xhtml" NAME="output4"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="mm_home" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#trip_list.xhtml"
+  PATH="/view/trip_list.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#trip_list.xhtml:0" NAME="item"
+   PATH="/view/trip_list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="show_detail::#view#trip.xhtml" NAME="output"
+    PATH="/view/trip.xhtml" TARGET="rules:#view#trip.xhtml"
+    TITLE="show_detail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#trip.xhtml" PATH="/view/trip.xhtml"
+  SHAPE="528,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#buy_trip.xhtml"
+  PATH="/view/buy_trip.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#client_list.xhtml"
+  PATH="/view/client_list.xhtml" SHAPE="304,385,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

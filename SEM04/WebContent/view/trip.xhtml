@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"	>
+<body>
+<ui:composition template="/template/blue_travel.xhtml">
+<ui:define name="pageTitle">#{local.tripDetail}</ui:define>
+<ui:define name="primaryContent">
+<h:form>
+  <rich:collapsiblePanel>
+    <f:facet name="header">#{local.details}</f:facet>
+<!--     <h:form> -->
+      <h:panelGrid columns="3">
+ 
+        <h:outputText value="#{local.name}: " />
+        <h:inputText id="holidayName" value="#{holidayManager.currentHoliday.name}"/>
+        <rich:message for="holidayName" />
+ 
+        <h:outputText value="#{local.starts}: " />
+        <rich:calendar id="holidayStarts" datePattern="dd.M.yyyy"
+                    value="#{holidayManager.currentHoliday.starts}" />
+        <rich:message for="holidayStarts" />
+ 
+         <h:outputText value="#{local.ends}: " />
+         <rich:calendar id="holidayEnds" datePattern="dd.M.yyyy"
+                     value="#{holidayManager.currentHoliday.ends}" />
+         <rich:message for="holidayEnds" />
+ 
+         <h:outputText value="#{local.price}: " />
+         <h:inputText id="holidayPrice"
+           value="#{holidayManager.currentHoliday.price}"/>
+         <rich:message for="holidayPrice" />
+ 
+      </h:panelGrid>
+      <h:commandButton value="#{local.save}" action="#{holidayManager.saveHoliday}">
+        <f:ajax execute="@form" render="@form"/>
+      </h:commandButton>
+      
+      
+      
+<!--     </h:form> -->
+  </rich:collapsiblePanel>
+   </h:form>
+   
+   
+   <h:outputText id="secret" value="#{holidayManager.secretNumber}"></h:outputText>
+      
+      <h:commandLink value="click me :)" action="#{holidayManager.secretAction}">
+      	<a4j:ajax execute="@this" render="secret"/>      	 
+      </h:commandLink>
+   
+</ui:define>
+</ui:composition>
+</body>
+</html>

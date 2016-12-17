@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>Login Form</title>
+    </h:head>
+    <h:body>       
+          <!--   <form method="POST" action="j_security_check">
+                       Username: <input type="text" name="j_username" />
+                       Password: <input type="password" name="j_password" />
+                       <br />
+                       <input type="submit" value="Login" />
+                       <input type="reset" value="Reset" />
+                   </form> -->
+                   
+            <h:form id="loginForm" onsubmit="document.loginForm.action = 'j_security_check';">  
+             <h:panelGrid columns="2">
+	                <h:outputLabel value="Username"></h:outputLabel>  
+	                <input name="j_username" type="text" />  
+	                <h:outputLabel value="Passwort"></h:outputLabel>  
+	                <input name="j_password" size="15" type="password" />  
+	                <h:commandButton value="Login"></h:commandButton>  
+                </h:panelGrid>
+            </h:form>  
+            
+            
+       <!--      <form action="j_security_check" method="POST">
+           <h:panelGrid columns="2">
+			    <h:outputLabel for="j_username">Username</h:outputLabel>
+			    <h:inputText id="j_username" size="20" />
+			
+			    <h:outputLabel for="j_password">Password</h:outputLabel>
+			    <h:inputSecret id="j_password" size="20"/>
+			
+			    <input type="submit" value="Login" />
+			    </h:panelGrid>
+			</form>-->
+            
+    </h:body>
+</html>
