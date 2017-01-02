@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<h1>Money transfer</h1>
+	<h:form id="transferForm">
+	     From account:<br/>
+	     <h:inputText required="true" class="text" id="debitAccountPrefix" value="#{moneyTransfer.debitAccountPrefix}"/>-
+	     <h:inputText required="true" class="text" id="debitAccountNo" value="#{moneyTransfer.debitAccountNo}"/>/		
+		 <h:inputText required="true" class="text" id="debitBankCode" value="#{moneyTransfer.debitBankCode}"/>	
+		<br />
+	     To account:<br/>
+	     <h:inputText required="true" class="text" id="creditAccountPrefix" value="#{moneyTransfer.creditAccountPrefix}"/>-
+	     <h:inputText required="true" class="text" id="creditAccountNo" value="#{moneyTransfer.creditAccountNo}"/>/		
+		 <h:inputText required="true" class="text" id="creditBankCode" value="#{moneyTransfer.creditBankCode}"/>
+		<br />
+		<h:commandButton id="submit" value="Submit" action="#{moneyTransfer.send}" />
+		
+	</h:form>
+</h:body>
+</html>

@@ -19,7 +19,7 @@ public class ShoppingCartBean implements ShoppingCart, Serializable {
 
 	@Inject
 	@CreditCard
-	private PaymentProcessor xxx;
+	private PaymentProcessor ccPaymentProc;
 
 	@Inject
 	@WireTransfer
@@ -28,7 +28,7 @@ public class ShoppingCartBean implements ShoppingCart, Serializable {
 	public void checkout() {
 		switch (payment.getType()) {
 		case CREDIT_CARD:
-			xxx.pay(payment, 30.0d);
+			ccPaymentProc.pay(payment, 30.0d);
 			break;
 		case WIRE_TRANSFER:
 			wireTransferPaymentProc.pay(payment, 30.0d);
