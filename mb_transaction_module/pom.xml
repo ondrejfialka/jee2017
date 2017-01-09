@@ -5,6 +5,7 @@
   <version>1.0-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -22,6 +23,24 @@
 	  	<artifactId>javaee-api</artifactId>
 	  	<version>7.0</version>
 	  	<scope>provided</scope>
+	</dependency>
+	<dependency>
+	  	<groupId>cz.ucl.jee.mybank</groupId>
+	  	<artifactId>mb_account_module</artifactId>
+	  	<version>2.1-SNAPSHOT</version>	  
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-all</artifactId>
+	    <version>1.10.19</version>
+	    <scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
 	</dependency>
   </dependencies>
 </project>

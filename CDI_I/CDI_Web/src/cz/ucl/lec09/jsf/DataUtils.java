@@ -6,7 +6,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import cz.ucl.lec09.bean.PaymentType;
+import cz.ucl.cdi.bean.PaymentType;
 
 @ApplicationScoped
 @Named

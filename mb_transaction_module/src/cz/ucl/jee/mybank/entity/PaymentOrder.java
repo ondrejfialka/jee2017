@@ -1,6 +1,9 @@
 package cz.ucl.jee.mybank.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import cz.ucl.jee.mybank.accounts.Account;
 
 public class PaymentOrder {
 	
@@ -10,6 +13,7 @@ public class PaymentOrder {
 	private String currencyCode;
 	private BigDecimal amount;
 	
+	private LocalDate dueDate;
 	
 	public Account getDebitAccount() {
 		return debitAccount;

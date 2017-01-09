@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head/>
+<h:body>
+<ui:composition template="/template/page.xhtml">
+	<ui:define name="pageTitle">#{local.start_trip}</ui:define>
+	<ui:define name="primaryContent">
+		<h:form>
+        <rich:dataTable var="holiday" value="#{testData.allHolidays}">
+        	<rich:column>
+        		<f:facet name="header">#{local.holiday_name}</f:facet>
+        		#{holiday.name}
+        	</rich:column>
+        	<rich:column>
+        		<f:facet name="header">#{local.holiday_price}</f:facet>
+        		<h:outputText value="#{holiday.price}">
+        			<f:convertNumber minFractionDigits="1"/>
+        		</h:outputText>
+        	</rich:column>        	
+        	<rich:column>
+        		<h:commandLink action="#{tripPurchaseControllerBean.createContract(holiday.id)}" 
+        		               value="#{local.select}" />
+        	</rich:column>
+        </rich:dataTable>
+        </h:form>
+	</ui:define>
+</ui:composition>
+</h:body>
+</html>

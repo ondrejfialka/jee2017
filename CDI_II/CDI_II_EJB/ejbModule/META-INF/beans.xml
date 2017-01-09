@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://docs.jboss.org/cdi/beans_1_0.xsd">
+ <interceptors>
+  <class>cz.ucl.cdi.interceptor.MonitoringInterceptor</class>
+ </interceptors>
+ <decorators>
+  <class>cz.ucl.cdi.decorator.VATReturnPaymentProcessorDecorator</class>
+  <class>cz.ucl.cdi.decorator.FraudProtectionPaymentProcessorDecorator</class>
+ </decorators>
+ <!-- alternatives>
+  <class>cz.ucl.cdi.bean.AlternateWireTransferPaymentProcessor</class>
+ </alternatives -->
+</beans>

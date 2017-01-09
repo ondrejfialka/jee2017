@@ -4,7 +4,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import cz.ucl.jee.mybank.entity.Account;
+import cz.ucl.jee.mybank.accounts.Account;
 import cz.ucl.jee.mybank.entity.PaymentOrder;
 import cz.ucl.jee.mybank.transfer.OrderSender;
 
@@ -25,27 +25,24 @@ public class MoneyTransfer {
 	
 	public void send(){
 		PaymentOrder order = new PaymentOrder();
-		Account debitAccount = new Account();
+		Account debitAccount = new Account.Builder()
+				.prefix(debitBankCode)
+				.number(debitAccountNo)
+				.bankCode(debitBankCode)
+				.build();
 		order.setDebitAccount(debitAccount);
-		debitAccount.setPrefix(debitBankCode);
-		debitAccount.setNumber(debitAccountNo);
-		debitAccount.setBankCode(debitBankCode);
 		
-		Account creditAccount = new Account();
+		Account creditAccount = new Account.Builder()
+				.prefix(creditAccountPrefix)
+				.number(creditAccountNo)
+				.bankCode(creditBankCode)
+				.build();
 		order.setCreditAccount(creditAccount);
-		creditAccount.setPrefix(creditBankCode);
-		creditAccount.setNumber(creditAccountNo);
-		creditAccount.setBankCode(creditBankCode);
-		
+				
 		orderSender.sendPaymentOrder(order);
 	}
 	
-	public OrderSender getOrderSender() {
-		return orderSender;
-	}
-	public void setOrderSender(OrderSender orderSender) {
-		this.orderSender = orderSender;
-	}
+	
 	public int getDebitAccountPrefix() {
 		return debitAccountPrefix;
 	}
