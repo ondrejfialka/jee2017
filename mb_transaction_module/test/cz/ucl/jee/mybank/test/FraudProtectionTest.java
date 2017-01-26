@@ -34,6 +34,7 @@ public class FraudProtectionTest {
 		//amount is greater than allowed - sendPaymentOrder should not execute
 		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT.add(BigDecimal.ONE) );							
 		fpDecorator.sendPaymentOrder(order);
+		//verify, that the method has not been run (0 times)
 		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);
 				
 		//amount is maximum than allowed - sendPaymentOrder should not execute
@@ -44,15 +45,17 @@ public class FraudProtectionTest {
 	
 	@Test
     public void testAccount() {		
-		PaymentOrder order = new PaymentOrder();
+		PaymentOrder order = new PaymentOrder();	
+		Account creditAccount = new Account.Builder().number(123456L).build();
+		order.setCreditAccount(creditAccount);
+		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);
 		
 		//set the blackList mock to return true to specific account
-		Account creditAccount = new Account.Builder().number(123456L).build();
 		Mockito.when(blackList.isAccountOnList(creditAccount)).thenReturn(true);
-		order.setCreditAccount(creditAccount);
-		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);	
-		fpDecorator.sendPaymentOrder(order);
-		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);
 				
+		fpDecorator.sendPaymentOrder(order);
+		
+		//verify the method was not called
+		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);		
     }
 }

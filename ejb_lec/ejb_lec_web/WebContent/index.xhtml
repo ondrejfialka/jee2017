@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<body>
+<ui:composition template="/template/basic.xhtml">
+	<ui:define name="pageTitle">Main menu</ui:define>
+	<ui:define name="primaryContent">	  		
+		<ul>
+		<li><a href="login.jsf">Login (can't be submitted)</a></li>
+		<li><a href="view/buy_ticket.jsf">Buy a zoo ticket</a></li>
+		<li><a href="view/manage_habitat.jsf">Choose and manage predator habitat</a></li>
+	</ul>	 
+  </ui:define>
+</ui:composition>
+</body>
+</html>

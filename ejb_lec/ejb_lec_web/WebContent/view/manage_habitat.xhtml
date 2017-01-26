@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:ucl="http://www.unicorcollege.cz/JEE/Library">
+<body>
+<ui:composition template="/template/page.xhtml">
+	<ui:define name="pageTitle">#{local.manageHabitat}</ui:define>
+	<ui:define name="primaryContent">	
+	<h:form>	
+		<h:messages globalOnly="true"/>
+		<rich:collapsiblePanel rendered="#{habitatManager.selectedHabitat eq null}">
+			<f:facet name="header">#{local.chooseHabitat}</f:facet>			
+			  #{local.habitat}:
+			  <h:selectOneMenu id="selectedHabitat" value="#{habitatManager.selectedHabitat}">
+			  	<f:selectItem itemValue="tigers" itemLabel="#{local.tigers}" />
+			  	<f:selectItem itemValue="lions" itemLabel="#{local.lions}" />
+			  	<f:selectItem itemValue="panthers" itemLabel="#{local.panthers}" />
+			  </h:selectOneMenu> 			 
+			  <h:commandButton value="#{local.save}" action="#{habitatManager.selectHabitat}">
+			  	<f:ajax execute="@form" render="@form" />
+			  </h:commandButton>			  		
+		</rich:collapsiblePanel>	
+		<rich:collapsiblePanel rendered="#{habitatManager.selectedHabitat ne null}">
+			    <f:facet name="header">#{local.habitatDetails}</f:facet>
+			    <h:panelGrid columns="2">
+			      <h:outputText value="#{local.showHabitat}: " />
+			      <h:outputText value="#{habitatManager.selectedHabitat}" />
+			      <h:outputText value="#{local.showTemperature}: " />
+			      <a4j:outputPanel id="temperaturePanel" ajaxRendered="true">
+			        <h:outputText value="#{habitatManager.habitat.temperature}" />
+			      </a4j:outputPanel>
+			    </h:panelGrid>
+			</rich:collapsiblePanel>
+		
+			<rich:collapsiblePanel rendered="#{habitatManager.selectedHabitat ne null}">
+			<f:facet name="header">#{local.manageHabitat}</f:facet>		
+			  #{local.temperature}: 
+			  <h:inputText id="temperature" value="#{habitatManager.habitat.temperature}" />
+			  <a4j:commandButton value="#{local.save}" />
+			  <h:commandButton value="#{local.close}" action="#{habitatManager.closeHabitat}">
+			  	<a4j:ajax execute="@form" render="@form"/>
+			  </h:commandButton>			
+			</rich:collapsiblePanel>	
+	 </h:form>	
+	</ui:define>
+</ui:composition>
+</body>
+</html>

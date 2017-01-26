@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="240,145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logged_out::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="logged_out" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#view#buy_ticket.xhtml"
+  PATH="/view/buy_ticket.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#buy_ticket.xhtml:0" NAME="item"
+   PATH="/view/buy_ticket.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="payment_succeeded::#view#show_ticket.xhtml"
+    NAME="output" PATH="/view/show_ticket.xhtml"
+    TARGET="rules:#view#show_ticket.xhtml" TITLE="payment_succeeded" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="464,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#show_ticket.xhtml"
+  PATH="/view/show_ticket.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#manage_habitat.xhtml"
+  PATH="/view/manage_habitat.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#view#manage_habitat.xhtml:0" NAME="item"
+   PATH="/view/manage_habitat.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="habitat_closed::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml"
+    TITLE="habitat_closed" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
