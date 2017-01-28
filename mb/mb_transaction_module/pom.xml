@@ -3,6 +3,13 @@
   <groupId>cz.ucl.jee.mybank</groupId>
   <artifactId>mb_transaction_module</artifactId>
   <version>1.0-SNAPSHOT</version>
+  
+  <parent>
+  	<groupId>cz.ucl.jee.mybank</groupId>
+  	<artifactId>mb</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>test</testSourceDirectory>
@@ -18,12 +25,6 @@
     </plugins>
   </build>
    <dependencies>
-  	<dependency>
-	  	<groupId>javax</groupId>
-	  	<artifactId>javaee-api</artifactId>
-	  	<version>7.0</version>
-	  	<scope>provided</scope>
-	</dependency>
 	<dependency>
 	  	<groupId>cz.ucl.jee.mybank</groupId>
 	  	<artifactId>mb_account_module</artifactId>

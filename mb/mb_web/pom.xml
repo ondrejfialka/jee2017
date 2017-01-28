@@ -1,12 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cz.ucl.jee</groupId>
-  <artifactId>rs</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>cz.ucl.jee.mybank</groupId>
+  <artifactId>mb_web</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   
+  <parent>
+  	<groupId>cz.ucl.jee.mybank</groupId>
+  	<artifactId>mb</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+  
   <build>
-  	<finalName>rs</finalName>
+  	<finalName>mb_web</finalName>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
@@ -26,19 +32,16 @@
       </plugin>
     </plugins>
   </build>
-  
-  <dependencies>
-  	<dependency>
-	  	<groupId>javax</groupId>
-	  	<artifactId>javaee-api</artifactId>
-	  	<version>7.0</version>
-	  	<scope>provided</scope>
+   <dependencies> 	
+	<dependency>
+	  	<groupId>cz.ucl.jee.mybank</groupId>
+	  	<artifactId>mb_transaction_module</artifactId>
+	  	<version>1.0-SNAPSHOT</version>	  
 	</dependency>
 	<dependency>
-		<groupId>cz.ucl.jee</groupId>
-		<artifactId>rs_dao</artifactId>
-		 <version>1.0-SNAPSHOT</version>
+	  	<groupId>cz.ucl.jee.mybank</groupId>
+	  	<artifactId>mb_account_module</artifactId>
+	  	<version>2.1-SNAPSHOT</version>	  
 	</dependency>
   </dependencies>
-  
 </project>
