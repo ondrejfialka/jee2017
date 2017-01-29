@@ -18,5 +18,4 @@ public class GreetingService {
     public String sayHello(@WebParam(name="name") String name) {
         return message + name + ".";
     }
-
 }
