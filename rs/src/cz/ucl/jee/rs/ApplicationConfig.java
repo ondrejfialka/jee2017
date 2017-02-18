@@ -5,7 +5,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("rest")
+@ApplicationPath("/")
 public class ApplicationConfig extends Application {
 
 	//Defines the components of a JAX-RS application and supplies additional meta-data. 
