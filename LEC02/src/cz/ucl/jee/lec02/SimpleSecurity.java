@@ -7,7 +7,7 @@ public class SimpleSecurity implements SecurityManager {
 
 	@Override
 	public boolean checkCredentials(String username, String password){
-		return ("admin1".equals(username) && "secret".equals(password));
+		return ("admin".equals(username) && "secret".equals(password));
 	}
 
 	@Override
