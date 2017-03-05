@@ -16,7 +16,9 @@
 		<br />
 		<h:commandButton id="submit" value="Submit" action="#{formData.createUser}" />
 		<br/>
-		Request date: <h:outputText value="#{formData.date}"/>
+		Request date: <h:outputText value="#{formData.date}">
+			<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
+		</h:outputText>
 		<br/>
 		User count: <h:outputText value="#{userManager.userCount}"/>
 	</h:form>
