@@ -12,7 +12,7 @@ public class InMemoryAccountService implements AccountService {
 
 	@Override
 	public void moneyTransfer(Account sourceAccount, Account targetAccount) {
-		// TODO Auto-generated method stub
+		targetAccount.getBankCode();
 		
 	}
 

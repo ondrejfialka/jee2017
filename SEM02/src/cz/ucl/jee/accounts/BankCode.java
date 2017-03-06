@@ -1,7 +1,9 @@
 package cz.ucl.jee.accounts;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public enum BankCode {
 	KB("0100"),
@@ -14,10 +16,13 @@ public enum BankCode {
 	static final Map<String, BankCode> CODE_MAP;
 	
 	static {
-		CODE_MAP = new HashMap<>();
-		for (BankCode bankCode : BankCode.values()){
-			CODE_MAP.put(bankCode.getCode(), bankCode);
-		}
+		CODE_MAP = Arrays.stream(BankCode.values()).collect(Collectors.toMap(BankCode::getCode, bankCode -> bankCode));
+		
+	//	Arrays.stream(BankCode.values()).collect(Collectors.toMap(BankCode::getCode, bankCode -> bankCode));
+		
+		//for (BankCode bankCode : BankCode.values()){
+		//	CODE_MAP.put(bankCode.getCode(), bankCode);
+		//}
 	}
 	
 	private BankCode(String code){
