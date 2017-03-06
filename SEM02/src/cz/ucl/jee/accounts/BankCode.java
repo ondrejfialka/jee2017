@@ -16,13 +16,11 @@ public enum BankCode {
 	static final Map<String, BankCode> CODE_MAP;
 	
 	static {
-		CODE_MAP = Arrays.stream(BankCode.values()).collect(Collectors.toMap(BankCode::getCode, bankCode -> bankCode));
-		
-	//	Arrays.stream(BankCode.values()).collect(Collectors.toMap(BankCode::getCode, bankCode -> bankCode));
-		
-		//for (BankCode bankCode : BankCode.values()){
-		//	CODE_MAP.put(bankCode.getCode(), bankCode);
-		//}
+		CODE_MAP = new HashMap<>();
+			
+		for (BankCode bankCode : BankCode.values()){
+			CODE_MAP.put(bankCode.getCode(), bankCode);
+		}
 	}
 	
 	private BankCode(String code){
