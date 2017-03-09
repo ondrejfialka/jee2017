@@ -6,7 +6,15 @@
   <packaging>war</packaging>
   <build>
   	<finalName>LEC03</finalName>
-    <sourceDirectory>src</sourceDirectory>    
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+        <resource>
+            <directory>src</directory>
+            <includes>
+                <include>**/*.properties</include>
+            </includes>
+        </resource>
+    </resources>    
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
