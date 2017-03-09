@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
-@ManagedBean(name="memberManager")
+@Named
 @ViewScoped
 public class MemberManager implements Serializable{
 	
@@ -15,7 +15,6 @@ public class MemberManager implements Serializable{
 	private List<Person> allMembers;
 
 	public MemberManager() {
-		super();
 		member = new Person();
 		allMembers = new ArrayList<Person>();
 	}
