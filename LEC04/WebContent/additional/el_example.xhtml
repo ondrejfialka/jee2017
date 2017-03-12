@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+	<h:panelGrid columns = "2" >
+	<b>Aritmetické výrazy</b> <h:outputText/>
+	<h:outputText value="\#{1 > (4/2)}" /> <h:outputText value="#{1>(4/2)}" />
+	<h:outputText value="\#{4.0 >= 3}" /> <h:outputText value="#{4.0>= 3}" />
+	<h:outputText value="\#{'a' lt 'b'}" /> <h:outputText value="#{'a' lt 'b'}" />
+	<h:outputText value="\#{1.2E4 + 1.4}" /> <h:outputText value="#{1.2E4 + 1.4}" />
+	<h:outputText value="\#{3 div 4}" /> <h:outputText value="#{3 div 4}" />
+	<h:outputText/><h:outputText/>
+	<b>Vyhodnocení prázdného řetězce, pole, kolekce</b> <h:outputText/>
+	<h:outputText value='\#{empty ""}' /> <h:outputText value='#{empty ""}' />
+	<h:outputText value='\#{empty null}' /> <h:outputText value='#{empty null}' />
+	<h:outputText value='\#{empty []}' /> <h:outputText value='#{empty []}' />
+	<h:outputText value='\#{empty [1,2,3]}' /> <h:outputText value='#{empty [1,2,3]}' />
+	<h:outputText/><h:outputText/>
+	<b>Stream API</b> <h:outputText/>
+	<h:outputText value="\#{[1,2,3,4].stream().sum()}" /> <h:outputText value="#{[1,2,3,4].stream().sum()}" />
+	<h:outputText/><h:outputText/>
+	<b>Parametr requestu</b> <h:outputText/>
+	<h:outputText value="\#{param['name']}" /> <h:outputText value="#{param['name']}" />
+	
+	</h:panelGrid>
+
+</h:body>
+</html>
