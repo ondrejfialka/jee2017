@@ -37,5 +37,9 @@ public class MemberManager implements Serializable{
 		member = new Person();
 		return "memberSaved";
 	}
+	
+	public int getNumberOfMembers(){
+		return allMembers.size();
+	}
 
 }

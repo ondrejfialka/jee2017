@@ -14,10 +14,6 @@
 	<ui:define name="primaryContent">
 		<h:form>						
 			<h3>Filtered Table</h3>
-<!-- 			Show only meals containing  -->
-<!-- 				<h:inputText value="#{foodMgr.mealFilter}"> -->
-<!-- 					<a4j:ajax event="blur" render="filteredTable" execute="@this" /> -->
-<!-- 				</h:inputText> -->
 			<br/><br/>
 			<rich:dataTable var="meal" value="#{foodMgr.allMeals}" iterationStatusVar="mealStat" rows="3" id="filteredTable">
 				 <f:facet name="header">
@@ -53,17 +49,6 @@
 			Click the "name" column header to change the sort order
 			<br/><br/>		
 			<rich:dataTable var="meal" value="#{foodMgr.allMeals}" id="sortedTable" rows="5">
-<!-- 				 <f:facet name="header"> -->
-<!--       				<rich:columnGroup>      					      					 -->
-<!--       					<rich:column>Category</rich:column>      					 -->
-<!--       					<rich:column> -->
-<!--       						<a4j:commandLink action="#{tableMgr.orderByMeal}" render="sortedTable" -->
-<!--       							value="Name (#{tableMgr.mealNameOrder})" > -->
-<!--       						</a4j:commandLink>  -->
-<!--       					</rich:column> -->
-<!--       					<rich:column>Price</rich:column>      					 -->
-<!--       				</rich:columnGroup> -->
-<!--       			</f:facet> -->
       			<rich:column>
       				<f:facet name="header">Category</f:facet>
       				#{meal.category}
