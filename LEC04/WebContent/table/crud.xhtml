@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Really simple CRUD</title>
+    </h:head>
+    <h:body>
+        <h3>List items</h3>
+        <h:form rendered="#{not empty tableBean1.list}">
+            <h:dataTable value="#{tableBean1.list}" var="item">
+                <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
+                <h:column><f:facet name="header">Value</f:facet>#{item.value}</h:column>
+                <h:column><h:commandButton value="edit" action="#{tableBean1.edit(item)}" /></h:column>
+                <h:column><h:commandButton value="delete" action="#{tableBean1.delete(item)}" /></h:column>
+               
+            </h:dataTable>
+        </h:form>
+        <h:panelGroup rendered="#{empty tableBean1.list}">
+            <p>Table is empty! Please add new items.</p>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{!tableBean1.edit}">
+            <h3>Add item</h3>
+            <h:form>
+                <p>Value: <h:inputText value="#{tableBean1.item.value}" /></p>
+                <p><h:commandButton value="add" action="#{tableBean1.add}" /></p>
+            </h:form>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{tableBean1.edit}">
+            <h3>Edit item #{tableBean1.item.id}</h3>
+            <h:form>
+                <p>Value: <h:inputText value="#{tableBean1.item.value}" /></p>
+                <p><h:commandButton value="save" action="#{tableBean1.save}" /></p>
+            </h:form>
+        </h:panelGroup>
+    </h:body>
+</html>
