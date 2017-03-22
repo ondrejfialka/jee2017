@@ -1,4 +1,4 @@
-﻿package cz.ucl.jsf.model;
+package cz.ucl.jsf.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
