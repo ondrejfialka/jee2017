@@ -28,6 +28,7 @@ public class HolidayManager implements Serializable {
 	@Transactional(Transactional.TxType.REQUIRED)
 	public void addCustomer() {
 		addCustomer2();
+		System.out.println(entityManager.getTransaction().isActive());
 		
 	// exception causes the transaction to rollback	
 	//	throw new RuntimeException();
@@ -35,6 +36,7 @@ public class HolidayManager implements Serializable {
 	
 	@Transactional(Transactional.TxType.SUPPORTS)
 	public void addCustomer2() {
+		System.out.println(entityManager.getTransaction().isActive());
 		Customer customer = customerData.getCustomer();
 		entityManager.persist(customer);
 	}	
