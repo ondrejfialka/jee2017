@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+	<h1>Transactions</h1>
+	<h:form>
+		<h:outputLabel for="firstName">First name:</h:outputLabel>
+		<h:inputText id ="firstName" value="#{customerData.customer.firstName}"/><br/>
+		<h:outputLabel for="surname">Surname:</h:outputLabel>
+		<h:inputText id ="surname" value="#{customerData.customer.surname}"/><br/>
+		<h:commandButton value="Add customer (REQUIRED)" action="#{holidayManager.addCustomer}"/><br/>
+		<h:commandButton value="Add Customer (SUPPORTS)" action="#{holidayManager.addCustomer2}"/>
+	</h:form>
+</body>
+</html>
