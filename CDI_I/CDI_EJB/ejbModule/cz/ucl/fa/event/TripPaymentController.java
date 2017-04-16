@@ -7,7 +7,7 @@ import cz.ucl.fa.model.Contract;
 
 public class TripPaymentController {	
 
-	public void payForTrip(@Observes(during=TransactionPhase.AFTER_COMPLETION) TripPurchaseCompleted tripCompletedEvent) {
+	public void payForTrip(@Observes TripPurchaseCompleted tripCompletedEvent) {
 		Contract c = tripCompletedEvent.getContract();
 		int travellers = c.getTravellers().size();
 	    System.out.println("Paying for the holiday: " + c.getHoliday().getName() + 
