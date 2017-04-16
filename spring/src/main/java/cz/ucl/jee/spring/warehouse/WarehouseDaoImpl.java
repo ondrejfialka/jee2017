@@ -4,7 +4,7 @@ public class WarehouseDaoImpl implements WarehouseDao{
 
 	@Override
 	public int getNumberOfItems(String code) {		
-		return 0;
+		return 42;
 	}
 
 }

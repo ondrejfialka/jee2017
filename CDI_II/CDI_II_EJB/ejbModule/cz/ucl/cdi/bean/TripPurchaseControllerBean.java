@@ -24,7 +24,7 @@ public class TripPurchaseControllerBean implements TripPurchaseController, Seria
 	
 	@Inject
 	private Conversation conversation;
-			
+					
 	@Override
 	public String createContract(Long holidayId) {
 		System.out.println("Creating a contract");

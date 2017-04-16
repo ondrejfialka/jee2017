@@ -11,13 +11,11 @@ public class StockExchangeService {
 	public String getExchangeName() {
 		return exchangeName;
 	}
+	
 	public void setExchangeName(String exchangeName) {
 		this.exchangeName = exchangeName;
 	}
-	
-	
-
-
+		
 	public StockExchangeConnector getConnector() {
 		return connector;
 	}
