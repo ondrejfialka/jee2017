@@ -4,16 +4,15 @@ import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import cz.ucl.lec06.ejb.PredatorHabitat;
 
 
-@ManagedBean(name="habitatManager")
+@Named("habitatManager")
 @ViewScoped
 public class HabitatManager implements Serializable{
 	@EJB

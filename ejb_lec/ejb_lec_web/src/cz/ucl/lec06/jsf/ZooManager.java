@@ -5,14 +5,15 @@ import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import cz.ucl.lec06.ejb.PaymentFailedException;
 import cz.ucl.lec06.ejb.Zoo;
 
-@ManagedBean(name="zooManager")
+@Named("zooManager")
 @ViewScoped
 public class ZooManager implements Serializable {
 	@EJB

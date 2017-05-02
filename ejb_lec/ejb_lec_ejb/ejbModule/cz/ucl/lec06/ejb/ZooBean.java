@@ -30,7 +30,7 @@ public class ZooBean implements Zoo {
 		try {
 			String paymentId = processor.processPayment(TICKET_PRICE,
 					customerName, creditCardNumber, creditCardValidity);
-			
+				
 			String ticketCode = "TCKT" + paymentId + "_" + day.getTime();
 			//Ulož vstupenku do databáze
 			//Naplánuj smazání vstupenky skončení po platnosti

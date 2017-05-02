@@ -17,8 +17,7 @@
 </head>
 <body>
 
-	<springForm:form method="POST" commandName="employee"
-		action="save">
+	<springForm:form method="POST" modelAttribute="employee" action="save">
 		<table>
 			<tr>
 				<td>Employee ID:</td>

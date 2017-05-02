@@ -1,11 +1,12 @@
 package cz.ucl.lec06.jsf;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
-@ManagedBean(name="utils")
+@Named("utils")
 @ApplicationScoped
 public class Utils {
 	// this method simply invalidates the current session
