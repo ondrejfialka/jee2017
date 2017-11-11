@@ -17,7 +17,7 @@ public class StockExchangeController {
 
 	@RequestMapping(value = "/stocks", method = RequestMethod.GET)
 	public String getQuote(@RequestParam String company){
-				
+		//hello		
 		return stockExchangeData.getQuote(company);
 	}
 	
