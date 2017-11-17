@@ -5,6 +5,8 @@ public class Account {
 	private int bankCode;
 	private long number;
 	private int prefix;		
+	
+	private int unused;
 		
 	private Account(){
 	}
