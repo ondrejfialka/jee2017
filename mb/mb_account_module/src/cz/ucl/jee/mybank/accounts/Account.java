@@ -5,7 +5,7 @@ package cz.ucl.jee.mybank.accounts;
 **/
 public class Account {
 	
-	private int bankCode;
+	private String bankCode;
 	private long number;
 	private int prefix;		
 	
@@ -15,7 +15,7 @@ public class Account {
 	public static class Builder {
 		private Account account = new Account();
 		
-		public Builder bankCode(int bankCode){
+		public Builder bankCode(String bankCode){
 			account.bankCode = bankCode;
 			return this;
 		}
@@ -35,7 +35,7 @@ public class Account {
 		}
 	}
 	
-	public int getBankCode() {
+	public String getBankCode() {
 		return bankCode;
 	}
 	
@@ -51,7 +51,7 @@ public class Account {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + bankCode;
+		result = prime * result + bankCode.hashCode();
 		result = prime * result + (int) (number ^ (number >>> 32));
 		result = prime * result + prefix;
 		return result;
@@ -66,7 +66,7 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (bankCode != other.bankCode)
+		if (bankCode.equals(other.bankCode))
 			return false;
 		if (number != other.number)
 			return false;

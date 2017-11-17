@@ -17,16 +17,16 @@ public class MoneyTransfer {
 	
 	private int debitAccountPrefix;
 	private long debitAccountNo;
-	private int debitBankCode;
+	private String debitBankCode;
 	
 	private int creditAccountPrefix;
 	private long creditAccountNo;
-	private int creditBankCode;
+	private String creditBankCode;
 	
 	public void send(){
 		PaymentOrder order = new PaymentOrder();
 		Account debitAccount = new Account.Builder()
-				.prefix(debitBankCode)
+				.prefix(debitAccountPrefix)
 				.number(debitAccountNo)
 				.bankCode(debitBankCode)
 				.build();
@@ -55,10 +55,10 @@ public class MoneyTransfer {
 	public void setDebitAccountNo(long debitAccountNo) {
 		this.debitAccountNo = debitAccountNo;
 	}
-	public int getDebitBankCode() {
+	public String getDebitBankCode() {
 		return debitBankCode;
 	}
-	public void setDebitBankCode(int debitBankCode) {
+	public void setDebitBankCode(String debitBankCode) {
 		this.debitBankCode = debitBankCode;
 	}
 	public int getCreditAccountPrefix() {
@@ -73,10 +73,10 @@ public class MoneyTransfer {
 	public void setCreditAccountNo(long creditAccountNo) {
 		this.creditAccountNo = creditAccountNo;
 	}
-	public int getCreditBankCode() {
+	public String getCreditBankCode() {
 		return creditBankCode;
 	}
-	public void setCreditBankCode(int creditBankCode) {
+	public void setCreditBankCode(String creditBankCode) {
 		this.creditBankCode = creditBankCode;
 	}
 	
