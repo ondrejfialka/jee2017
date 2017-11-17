@@ -6,7 +6,7 @@ public class Account {
 	private long number;
 	private int prefix;		
 	
-	private int unused;
+	private int maybeUnused;
 		
 	private Account(){
 	}
