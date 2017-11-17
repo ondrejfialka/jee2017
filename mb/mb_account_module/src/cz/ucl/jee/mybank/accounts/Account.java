@@ -1,5 +1,8 @@
 package cz.ucl.jee.mybank.accounts;
 
+/**
+* This is our super account!
+**/
 public class Account {
 	//different comment
 	private String bankCode;
