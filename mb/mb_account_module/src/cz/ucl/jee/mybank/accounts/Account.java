@@ -9,6 +9,7 @@ public class Account {
 	private Account(){
 	}
 	
+	//this is an example of builder pattern
 	public static class Builder {
 		private Account account = new Account();
 		
