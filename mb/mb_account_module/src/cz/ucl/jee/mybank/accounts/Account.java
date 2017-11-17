@@ -7,6 +7,7 @@ public class Account {
 	private int prefix;		
 	
 	private int maybeUnused;
+	public static final String NAME = "NAME";
 		
 	private Account(){
 	}
