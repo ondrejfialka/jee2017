@@ -1,7 +1,7 @@
 package cz.ucl.jee.mybank.accounts;
 
 /**
-* This is our super account!
+* Class representing bank account for money transfer
 **/
 public class Account {
 	
