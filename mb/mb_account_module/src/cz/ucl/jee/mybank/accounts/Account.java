@@ -3,6 +3,7 @@ package cz.ucl.jee.mybank.accounts;
 public class Account {
 	//different comment
 	private int bankCode;
+	private String iban;
 	private long number;
 	private int prefix;		
 	
@@ -19,6 +20,11 @@ public class Account {
 		public Builder bankCode(int bankCode){
 			account.bankCode = bankCode;
 			return this;
+		}
+		
+		public Builder iban(String iban) {
+			account.iban = iban;
+			return this;			
 		}
 		
 		public Builder number(long number){
@@ -48,6 +54,10 @@ public class Account {
 		return prefix;
 	}
 	
+	public String getIban() {
+		return iban;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
