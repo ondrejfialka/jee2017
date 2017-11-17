@@ -4,32 +4,22 @@ package cz.ucl.jee.mybank.accounts;
 * This is our super account!
 **/
 public class Account {
-	//different comment
-	private String bankCode;
-	private String iban;
+	
+	private int bankCode;
 	private long number;
 	private int prefix;		
 	
-	private int maybeUnused;
-	public static final String NAME = "NAME";
-		
 	private Account(){
 	}
 	
-	//this is an example of builder pattern
 	public static class Builder {
 		private Account account = new Account();
 		
-		public Builder bankCode(String bankCode){
+		public Builder bankCode(int bankCode){
 			account.bankCode = bankCode;
 			return this;
 		}
-		
-		public Builder iban(String iban) {
-			account.iban = iban;
-			return this;			
-		}
-		
+					
 		public Builder number(long number){
 			account.number = number;
 			return this;
@@ -45,7 +35,7 @@ public class Account {
 		}
 	}
 	
-	public String getBankCode() {
+	public int getBankCode() {
 		return bankCode;
 	}
 	
@@ -57,15 +47,11 @@ public class Account {
 		return prefix;
 	}
 	
-	public String getIban() {
-		return iban;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + bankCode.hashCode();
+		result = prime * result + bankCode;
 		result = prime * result + (int) (number ^ (number >>> 32));
 		result = prime * result + prefix;
 		return result;
@@ -80,7 +66,7 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (bankCode.equals(other.bankCode))
+		if (bankCode != other.bankCode)
 			return false;
 		if (number != other.number)
 			return false;
