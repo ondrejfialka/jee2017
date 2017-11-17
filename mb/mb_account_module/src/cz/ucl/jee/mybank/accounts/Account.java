@@ -1,7 +1,7 @@
 package cz.ucl.jee.mybank.accounts;
 
 public class Account {
-	//some comment
+	//different comment
 	private int bankCode;
 	private long number;
 	private int prefix;		
